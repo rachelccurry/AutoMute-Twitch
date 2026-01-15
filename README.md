@@ -1,0 +1,1 @@
+I hate Twitch ads and I never want to hear them
