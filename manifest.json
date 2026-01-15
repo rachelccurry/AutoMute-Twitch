@@ -3,19 +3,15 @@
   "description": "Base Level Extension",
   "version": "1.0",
   "manifest_version": 3,
-    "content_scripts": [
+  "content_scripts": [
     {
       "matches": ["https://www.twitch.tv/*"],
       "js": ["content.js"],
       "run_at": "document_idle"
     }
   ],
-  "permissions": [
-    "activeTab",
-    "scripting"
-  ],
   "action": {
     "default_popup": "autoMute.html",
-    "default_icon": "hello_extensions.png"
+    "default_icon": "icon.png"
   }
 }

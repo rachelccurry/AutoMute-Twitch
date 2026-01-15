@@ -1,23 +1,25 @@
 // automatically mutes video if twitch ad pops up
 // this should not affect anything if the user touches the video volume
+// doesn't do sidebar ads because those are auto-muted already
 
 // for testing
 console.log("RUNNING RN");
 
 let recentVolume = 0.5;
 let isMutedByMe = false;
-let mutedVideo = null //to check if it's the same video 
+let mutedVideo = null // to check if it's the same video 
 
 // get video object
 function getVideo() {
     return document.querySelector("video")
 }
 
-//
+// check if ad label exists (on Twitch, doesn't exist on regular vid)
 function adLabelPresent() {
   return !!document.querySelector('[data-a-target="video-ad-label"]');
 }
 
+// get rid of prob
 // function adPlaying(video) {
 //     if (!video) return false;
 
@@ -78,15 +80,15 @@ function handleChange() {
     }
 }
 
-const observer = new MutationObserver(handleChange);
+// const observer = new MutationObserver(handleChange);
 
-observer.observe(document.body, {
-    childList: true,
-    subtree: true,
-    attributes: true,
-    attributeFilter: ["data-a-target", "src"]
-});
+// observer.observe(document.body, {
+//     childList: true,
+//     subtree: true,
+//     attributes: true,
+//     attributeFilter: ["data-a-target", "src"]
+// });
 
-setInterval(handleChange, 1000);
+// setInterval(handleChange, 1000);
 
 handleChange();
