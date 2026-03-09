@@ -36,12 +36,12 @@ function adLabelPresent() {
 
 function mute(video) {
     // if I previously muted and the video is unmuted (user changed state)
-    if (isMutedByMe && !video.muted) {
-        isMutedByMe = false;
-        mutedVideo = null;
-        return;
-    }
-
+    // if (isMutedByMe && !video.muted) {
+    //     isMutedByMe = false;
+    //     mutedVideo = null;
+    //     return;
+    // }
+ 
     // if I muted already and is still muted
     if (isMutedByMe) return;
 
@@ -58,7 +58,7 @@ function unmute(video) {
     if (!isMutedByMe) return;
 
     // if the video is muted but it's not the ad (user changed state)
-    if (video.muted && video !==mutedVideo) return;
+    //if (video.muted && video !==mutedVideo) return;
 
     // otherwise unmute video
     video.muted = false;
@@ -89,6 +89,6 @@ function handleChange() {
 //     attributeFilter: ["data-a-target", "src"]
 // });
 
-// setInterval(handleChange, 1000);
+setInterval(handleChange, 1000);
 
 handleChange();
